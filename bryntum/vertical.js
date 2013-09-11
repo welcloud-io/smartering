@@ -1,12 +1,4 @@
 Ext.ns('App');
-//~ Ext.Loader.setConfig({ enabled : true, disableCaching : true });
-//~ Ext.Loader.setPath('Sch', '../../js/Sch'); // Fichiers avec les différentes langues
-
-//~ Ext.require([
-    //~ 'Sch.panel.SchedulerGrid',
-    //~ 'Sch.plugin.Zones'
-//~ ]);
-
 
 Ext.onReady(function () {
     App.SchedulerDemo.init();
@@ -30,8 +22,8 @@ App.SchedulerDemo = {
             rowHeight               		: 40,
             eventBarTextField       		: 'Title',
             viewPreset              		: 'hourAndDay',
-            startDate               		: new Date(2011, 11, 9, 8),
-            endDate                 		: new Date(2011, 11, 9, 23),
+            startDate               		: new Date(2013, 07, 28, 8),
+            endDate                 		: new Date(2013, 07, 28, 23),
             orientation             		: 'vertical',
             constrainDragToResource 	: false,
             eventBarIconClsField    	: 'Type',
@@ -46,24 +38,6 @@ App.SchedulerDemo = {
                 '<dl><dt>{[Ext.Date.format(values.StartDate, "G:i")]}</dt><dd>{Title}</dd>'
             ),
 
-            //~ eventRenderer : function (event, resource, data) {
-                //~ data.cls = resource.data.Name;
-                //~ return event.data;
-            //~ },
-
-            //~ lockedViewConfig : {
-                //~ stripeRows  : false,
-                //~ getRowClass : function (resource) {
-                    //~ return resource.data.Name;
-                //~ }
-            //~ },
-
-            // Setup static columns
-            //~ columns          : [
-                //~ {header : 'Name', sortable : true, width : 100, dataIndex : 'Name'}
-            //~ ],
-
-            // Store holding all the resources
             resourceStore     : Ext.create("Sch.data.ResourceStore", {
                 model : 'Sch.model.Resource',
                 data  : [
@@ -74,18 +48,26 @@ App.SchedulerDemo = {
             // Store holding all the events
             eventStore        : Ext.create("Sch.data.EventStore", {
                 model : 'Event',
-                data  : [
-                    {ResourceId : 'MadMike', Type : 'Call', Title : 'Lancement du projet smartering', StartDate : "2011-12-09 10:00", EndDate : "2011-12-09 11:00"},
-                ]
+                //~ data  : [
+                    //~ {ResourceId : 'MadMike', Type : 'Call', Title : 'Lancement du projet smartering', StartDate : "2011-12-09 10:00", EndDate : "2011-12-09 11:00"},
+                //~ ]
+                autoLoad: true,
+                autoSync: true,		    
+                proxy : {
+		  type : 'ajax',
+                  url : '/bryntum_data',
+		
+                  reader : {
+                     type : 'json',
+		  },
+		  
+		  writer : {
+                     type : 'json',
+                     root : 'data',
+                     writeAllFields: true,
+	        }
+            },		    
             }),
-
-            //~ onEventCreated : function (newEventRecord) {
-                //~ // Overridden to provide some defaults before adding it to the store
-                //~ newEventRecord.set({
-                    //~ Title : "Hey, let's meet",
-                    //~ Type  : 'Meeting'
-                //~ });
-            //~ },
 
         });
 
