@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+  <style>
+  
+    body {
+      overflow:hidden;
+      padding: 0px;
+      border: 0px;
+      margin: 0px;
+    }
+    
+    .room {
+      background: blue;
+      width: 100%;
+      height: 150px;
+    }
+  
+    .day {
+      background: red;
+      position: absolute;
+      width: 100%;
+      height: 140px;
+    }
+    
+    .hour {
+      background: green;
+      padding: 15px;
+    }
+    
+    .hour:hover {
+      background: orange;
+    }
+    
+    .reserved {
+      background: orange;
+    }
+    
+    .visible {
+      visibility: visible;
+      margin: 0px;
+      transition:margin 0.5s;
+    }
+    
+    .unvisible {
+      visibility: hidden;
+    }
+    
+    .left {
+      margin-left: -100%;
+    }
+    
+    .right {
+      margin-left: 100%;
+    }
+  
+  </style>
+  
+  <script src="purejs/meetings-mobile.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script>
+
+  </script>
+  
+  </head>
+
+  <body>
+  
+    <div class="room">
+    <div>SALLE DE REUNION Numéro 14</div>
+    <div>DATE : 17 Septembre 2013</div>
+    <div>HEURE : 15:34:48</div>
+    
+    <div>
+    LA SALLE EST RESERVEE ENTRE 15h00 et 16h00
+    </div>
+    
+    </div>
+  
+    <div class="day visible" id="Lundi" >
+    <div style="margin:5px">Lundi</div>
+    </br>
+    <span id="hour_9" class="hour" style="margin-left: 50px" onclick="pre_reserve(this.id)">09h-10h</span>
+    <span class="hour">10h-11h</span>
+    <span class="hour">11h-12h</span>
+    <span class="hour">12h-13h</span>
+    <span class="hour">13h-14h</span>
+    <span class="hour">14h-15h</span>
+    <span class="hour reserved">15h-16h</span>
+    <span class="hour">16h-17h</span>
+    <span class="hour">17h-18h</span>
+    </br>
+    </br>
+    </br>
+    <div style="text-align: right"><button>RESERVER</button></div>
+    </div>
+    
+    <div class="day unvisible right" id="Mardi">Mardi</div>
+    
+    <div class="day unvisible right" id="Mercredi">Mercredi</div>    
+    
+    <div class="day unvisible right" id="Jeudi">Jeudi</div>
+    
+    <div class="day unvisible right" id="Vendredi">Vendredi</div>    
+
+  </body>
+
+</html>

@@ -4,10 +4,11 @@ require './evrythng'
 require 'json'
 
 set :public_folder, '.'
+set :bind, '0.0.0.0'
 
 get '/' do
  
-  redirect 'meetings.html'
+  redirect 'meetings-mobile.html'
 
 end
 
