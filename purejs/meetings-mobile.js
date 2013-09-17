@@ -118,11 +118,12 @@ var swipeh = new MobiSwipe("current");
 swipeh.direction = swipeh.current;
 swipeh.onswiperight = function () {
     //~ alert('right'); 
-    next_day();
+   previous_day();	
+    
 };
 swipeh.onswipeleft = function () {
     //~ alert('left');  
-    previous_day();	
+   next_day();
 };
 
 // ------------------------------
