@@ -2,40 +2,103 @@
 <html>
 
   <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <style>
   
     body {
-      overflow:hidden;
+      overflow: hidden;
       padding: 0px;
       border: 0px;
       margin: 0px;
+      background-color:#1c1828;
+    }
+    
+    .frame {
+      overflow: hidden;
     }
     
     .room {
-      background: blue;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      background:#efe3e6;
       width: 100%;
       height: 150px;
-    }
-  
-    .day {
-      background: red;
-      position: absolute;
-      width: 100%;
-      height: 140px;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      border-radius: 14px;        
     }
     
+    .room_text {
+      text-align: center;
+      font-weight:bold;
+      font-family:arial,helvetica,sans-serif;
+      padding: 3px;      
+    }
+  
+    .day {  
+      position: absolute;    
+      background:#c9c3e6;
+      width: 100%;
+      height: 140px;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      border-radius: 14px;      
+    }
+    
+    .day_text {
+      text-align: center;
+      margin: 1%;
+      font-size: 1.5em;
+      border:1px solid #373553;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      border-radius: 14px; 
+      background: #c9c3c5;       
+    }
+
     .hour {
-      background: green;
-      padding: 15px;
+      padding: 5px;
+      font-weight:bold;
+      font-size: 0.7em;
+      border:2px solid #373553;
+      background:#00da80;  
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;      
     }
     
     .hour:hover {
-      background: orange;
+      background: #ef2000;
     }
     
     .reserved {
-      background: orange;
+      background: #ff0000;
+    }
+    
+    .legend {
+      font-size: 0.5em;
+      padding: 1px;
+      font-weight:normal;      
+    }
+    
+    .reserve_bar {
+      text-align: right;
+      margin-right: 2%;
+    }
+    
+    .reserve_button {
+      background-color: #9e8aff;
+      font-weight: bold;      
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      border-radius: 14px;
+    
+    }
+    
+    .reserve_button:hover {
+      background-color:#c9c3e6;
     }
     
     .visible {
@@ -66,23 +129,27 @@
   
   </head>
 
-  <body>
+  <body id="room_info">
   
-    <div class="room">
-    <div>SALLE DE REUNION Numéro 14</div>
-    <div>DATE : 17 Septembre 2013</div>
-    <div>HEURE : 15:34:48</div>
+    <div class="frame" >
+  
+    <div class="room" >
+
+    </br>
     
-    <div>
-    LA SALLE EST RESERVEE ENTRE 15h00 et 16h00
+    <div class="room_text">SALLE DE REUNION Numéro 14</div>
+    <div class="room_text">DATE : 16 Septembre 2013</div>
+    <div class="room_text">HEURE : 15:34:48</div>
+    <div class="room_text">LA SALLE EST RESERVEE ENTRE 15h00 et 16h00</div>
+    
     </div>
     
-    </div>
+    <div id="day_info">
   
     <div class="day visible" id="Lundi" >
-    <div style="margin:5px">Lundi</div>
+    <div class="day_text">Lundi 16-Sept-2013 &gt&gt<!--span class="hour legend">Libre</span> <span class="hour reserved legend">Réservé</span--> </div>
     </br>
-    <span id="hour_9" class="hour" style="margin-left: 50px" onclick="pre_reserve(this.id)">09h-10h</span>
+    <span id="hour_9" class="hour" style="margin-left: 20px" onclick="pre_reserve(this.id)">09h-10h</span>
     <span class="hour">10h-11h</span>
     <span class="hour">11h-12h</span>
     <span class="hour">12h-13h</span>
@@ -93,17 +160,22 @@
     <span class="hour">17h-18h</span>
     </br>
     </br>
-    </br>
-    <div style="text-align: right"><button>RESERVER</button></div>
+    <div class="reserve_bar"><input class="reserve_button" type="button" value="RESERVER"/></div>
     </div>
     
-    <div class="day unvisible right" id="Mardi">Mardi</div>
+    <div class="day unvisible right" id="Mardi">
+    <div class="day_text">&lt&lt Mardi 17-Sept-2013 &gt&gt</div>
+    </div>
     
     <div class="day unvisible right" id="Mercredi">Mercredi</div>    
     
     <div class="day unvisible right" id="Jeudi">Jeudi</div>
     
-    <div class="day unvisible right" id="Vendredi">Vendredi</div>    
+    <div class="day unvisible right" id="Vendredi">Vendredi</div>   
+    
+    </div>
+
+  </div>
 
   </body>
 

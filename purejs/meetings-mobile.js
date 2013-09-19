@@ -114,7 +114,7 @@ swipev.onswipeup = function () {
     alert('up');
 };
 
-var swipeh = new MobiSwipe("current");
+var swipeh = new MobiSwipe("room_info");
 swipeh.direction = swipeh.current;
 swipeh.onswiperight = function () {
     //~ alert('right'); 
