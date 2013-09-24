@@ -108,21 +108,20 @@ var swipev = new MobiSwipe("vertical");
 swipev.direction = swipev.VERTICAL;
 swipev.onswipedown = function () {
     alert('down');
-
 };
 swipev.onswipeup = function () {
     alert('up');
 };
 
-var swipeh = new MobiSwipe("room_info");
+var swipeh = new MobiSwipe("day_info");
 swipeh.direction = swipeh.current;
 swipeh.onswiperight = function () {
-    //~ alert('right'); 
+    alert('right'); 
    previous_day();	
     
 };
 swipeh.onswipeleft = function () {
-    //~ alert('left');  
+    alert('left');  
    next_day();
 };
 

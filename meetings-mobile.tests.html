@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+  <meta name='viewport' content='user-scalable=no,width=device-width' />
+
+  <!--script src="purejs/hammer.js" type="text/javascript" charset="utf-8"></script-->
+  <!--script src="purejs/quo.js" type="text/javascript" charset="utf-8"></script-->
+  
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="purejs/jquery.touchSwipe.js" type="text/javascript" charset="utf-8"></script>
+
+  
+    <script>
+    //window.addEventListener('load', function() {
+    //window.onload = function() {
+    //~ var element = document.getElementById('frame'); // Hammer.js, swipe or tap does not seem to be effective on all the div surface
+    //~ Hammer(element).on("tap", function(event) {
+        //~ alert('TAP');
+    //~ });
+    //~ Hammer(element).on("swipeleft", function(event) {
+        //~ alert('SWIPE');
+    //~ }); 
+
+    //$$('div').swipe(function() { alert('Tap') } ); // quo.js => swipe does not work on android 4/Chrome 27
+    //}
+    //}, false); 
+   //$(document).ready(function(){
+
+    // $("#frame").hide();
+
+   //});
+   
+
+    $(function() {      
+      $("#frame").swipe( {
+        swipe:function(event, direction, distance, duration, fingerCount) {
+          $(this).text("You swiped " + direction );  
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold:25
+      });
+    });
+  </script>
+  
+  </head>
+
+  <body style="background: blue">
+  
+    <div id="frame" style="width: 100%; height: 250px; background: green">A</div>
+
+  </body>
+
+</html>

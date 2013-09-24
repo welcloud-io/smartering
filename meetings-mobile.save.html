@@ -3,13 +3,14 @@
 
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"-->
   <meta name='viewport' content='user-scalable=no,width=device-width' />
   
   <style>
     
     .frame {
       position: absolute;
-      overflow: auto;
+      overflow: hidden;
       width: 100%;
       height: 100%;
       top: 0px;
@@ -22,7 +23,7 @@
       margin-bottom: 1%;
       background:#efe3e6;
       width: 100%;
-      height: 50%;
+      height: 150px;
       -webkit-border-radius: 14px;
       -moz-border-radius: 14px;
       border-radius: 14px;        
@@ -39,7 +40,7 @@
       position: absolute;    
       background:#c9c3e6;
       width: 100%;
-      height: 45%;
+      height: 140px;
       -webkit-border-radius: 14px;
       -moz-border-radius: 14px;
       border-radius: 14px;      
@@ -47,7 +48,7 @@
     
     .day_text {
       text-align: center;
-      margin: 1% 1% 3% 1%;
+      margin: 1%;
       font-size: 1.5em;
       border:1px solid #373553;
       -webkit-border-radius: 14px;
@@ -57,7 +58,7 @@
     }
 
     .hour {
-      padding: 10px 5px 10px 5px;
+      padding: 5px;
       font-weight:bold;
       font-size: 0.7em;
       border:2px solid #373553;
@@ -81,10 +82,7 @@
       -webkit-border-radius: 14px;
       -moz-border-radius: 14px;
       border-radius: 14px;
-    }
-
-    .reserve_bar {
-      text-align: right;
+    
     }
     
     .reserve_button:hover {
@@ -111,65 +109,37 @@
   
   </style>
   
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="purejs/jquery.touchSwipe.js" type="text/javascript" charset="utf-8"></script>
+  <!--script src="purejs/meetings-mobile.js" type="text/javascript" charset="utf-8"></script-->
+  <script src="purejs/hammer.js" type="text/javascript" charset="utf-8"></script>
   
   <script>
-  
-   // ------------------------------
-   // Day Navigation
-   // ------------------------------ 
-  
-  days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
-  current_day_index = 0;
-  first_day_index = 0;
-  last_day_index = days.length - 1;
-  
-  function next_day() {
-    if (current_day_index >= last_day_index) return;
-    document.getElementById(days[current_day_index]).className = 'day unvisible left'; 
-    document.getElementById(days[current_day_index + 1]).className = 'day visible';
-    current_day_index += 1;
-  }
-  
-  function previous_day() {
-    if (current_day_index <= first_day_index) return;
-    document.getElementById(days[current_day_index - 1]).className = 'day visible'; 
-    document.getElementById(days[current_day_index]).className = 'day unvisible right';
-    current_day_index -= 1;    
-  }
-  
-    $(function() {
-      $("#day_info").swipe( {
-        swipeRight:function(event, direction, distance, duration, fingerCount) {
-	   previous_day();
-        },
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-	  next_day();
-        },	
-         threshold:25 //Default is 75px
-      });      
-    });
+    window.addEventListener('load', function() {
+      var element = document.getElementById('frame');
+      var hammertime = Hammer(element).on("swipeleft", function(event) {
+        alert('hello!');
+      });
+    }, false);
   </script>
   
   </head>
 
   <body>
   
-    <div id="frame" class="frame">
+    <div class="frame" id="frame">
   
-      <div id="room" class="room" >
-        </br>    
+      <div class="room" >
+        <!--/br>    
         <div class="room_text">SALLE DE REUNION Numéro 14</div>
         <div class="room_text">DATE : 16 Septembre 2013</div>
         <div class="room_text">HEURE : 15:34:48</div>
-        <div class="room_text">LA SALLE EST RESERVEE ENTRE 15h00 et 16h00</div>
+        <div class="room_text">LA SALLE EST RESERVEE ENTRE 15h00 et 16h00</div-->
       </div>
     
       <div id="day_info">
 
         <div class="day visible" id="Lundi" >
-          <div class="day_text">Lundi 16-Sept-2013 &gt&gt</div>
+          <!--div class="day_text">Lundi 16-Sept-2013 &gt&gt</div>
+          </br>
           <span id="hour_9" class="hour" style="margin-left: 20px" onclick="pre_reserve(this.id)">09h-10h</span>
           <span class="hour">10h-11h</span>
           <span class="hour">11h-12h</span>
@@ -181,28 +151,25 @@
           <span class="hour">17h-18h</span>
           </br>
           </br>
-	  <div class="reserve_bar"><input class="reserve_button" type="button" value="RESERVER"/></div>
+          <div class="reserve_bar"><input class="reserve_button" type="button" value="RESERVER"/></div-->
         </div>
 
         <div class="day unvisible right" id="Mardi">
-          <div class="day_text">&lt&lt Mardi 17-Sept-2013 &gt&gt</div>
+          <!--div class="day_text">&lt&lt Mardi 17-Sept-2013 &gt&gt</div-->
         </div>
         <div class="day unvisible right" id="Mercredi">
-	  <div class="day_text">&lt&lt Mercredi 18-Sept-2013 &gt&gt</div>
+	  <!--div>Mercredi<div-->
 	</div>    
         <div class="day unvisible right" id="Jeudi">
-	  <div class="day_text">&lt&lt Jeudi 19-Sept-2013 &gt&gt</div>
+	  <!--div>Jeudi<div-->
 	</div>
         <div class="day unvisible right" id="Vendredi">
-	  <div class="day_text">&lt&lt Vendredi 20-Sept-2013</div>
+	  <!--div>Vendredi<div-->
 	</div>   
     
       </div> <!-- day info -->
-      
-      
 
     </div> <!-- frame -->
-
 
   </body>
 

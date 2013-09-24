@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="overflow:hidden">
+
+  <head>
+  
+    <style>
+	
+	.red {
+	  background: red;
+	}
+
+	.green {
+	  background: green;
+	}
+	
+	.blue {
+	  background: blue;
+	}	
+	
+	.absolute {
+	  position:absolute;	
+	}
+	
+	.relative {
+	  position:relative;	
+	}	
+	
+	.width_100 {
+	  width:100%;
+	}
+
+	.width_50 {
+	  width:50%;
+	}
+	
+	.height_100 {
+	  height:100%;
+	}
+	
+	.no_space {
+	  padding: 0px;
+       border: 0px;
+       margin: 0px;	  
+	}
+	
+	.no_scrollbar {
+       overflow:hidden;	  
+	}	
+	
+	.visible {
+	  visibility: visible;
+	  margin-left: 0px;
+	}
+	
+	.unvisible {
+	  visibility: hidden;
+	  margin-left: 100%;
+	}
+	
+	.transition {
+	  transition:margin 0.5s;
+	}
+	
+	</style>
+	
+	<script>
+	  function run() { 
+          document.getElementById("box_1").className = 'red absolute width_100 unvisible'; 
+          document.getElementById("box_2").className = 'red absolute width_100 visible transition'; 
+        }
+	</script>
+
+  </head>
+
+  <body class="absolute width_100 no_space no_scrollbar">
+  
+    <div id="header" class="green width_100">HEADER</div>
+	
+	<div id="box_1" class="red absolute width_100 visible">BOX 1</div>
+        <div id="box_2" class="red absolute width_100 no_space unvisible">
+	  <span class="red width_50">BOX 2</span>
+	  <span class="blue width_50 height_100 no_space">BOX 2</span>
+	  <span class="red width_50 height_100 no_space">BOX 3</span>
+	</div>
+	
+	<br/>
+	<div id="footer" class="green  width_100">FOOTER</div>
+	
+	<button onclick="run() ">RUN</button>
+  
+  </body>
+
+</html>
