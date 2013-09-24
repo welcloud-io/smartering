@@ -1,1 +1,1 @@
-web: bundle exec ruby smartering.rb -p $PORT
+web: bundle exec ruby sharedbytag.rb -p $PORT

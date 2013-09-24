@@ -6,9 +6,15 @@ require 'json'
 set :public_folder, '.'
 set :bind, '0.0.0.0'
 
-get '/' do
+get '/', :agent => /Android/ do
  
   redirect 'meetings-mobile.html'
+
+end
+
+get '/' do
+ 
+  redirect 'meetings.html'
 
 end
 
